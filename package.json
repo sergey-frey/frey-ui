@@ -1,0 +1,53 @@
+{
+	"name": "frey-ui",
+	"version": "1.0.0",
+	"description": "Tailwind UI Library",
+	"main": "index.js",
+	"scripts": {
+		"build": "tsdown",
+		"dev": "tsdown --watch",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/sergey-frey/frey-ui.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"type": "module",
+	"bugs": {
+		"url": "https://github.com/sergey-frey/frey-ui/issues"
+	},
+	"homepage": "https://github.com/sergey-frey/frey-ui#readme",
+	"devDependencies": {
+		"@storybook/addon-essentials": "^8.6.14",
+		"@storybook/addon-interactions": "^8.6.14",
+		"@storybook/addon-onboarding": "^8.6.14",
+		"@storybook/blocks": "^8.6.14",
+		"@storybook/react": "^8.6.14",
+		"@storybook/react-vite": "^8.6.14",
+		"@storybook/test": "^8.6.14",
+		"@tailwindcss/vite": "^4.1.7",
+		"@types/node": "^22.15.19",
+		"@types/react": "^19.1.4",
+		"@types/react-dom": "^19.1.5",
+		"rollup-plugin-scss": "^4.0.1",
+		"sass": "^1.89.0",
+		"storybook": "^8.6.14",
+		"tailwindcss": "^4.1.7",
+		"tsdown": "^0.11.9",
+		"tslib": "^2.8.1",
+		"typescript": "^5.8.3",
+		"@vitejs/plugin-react": "^4.4.1"
+	},
+	"peerDependencies": {
+		"react": ">=18.0.0",
+		"react-dom": ">=18.0.0"
+	},
+	"dependencies": {
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1"
+	}
+}

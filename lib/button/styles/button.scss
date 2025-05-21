@@ -1,0 +1,106 @@
+@import url("/lib//styles//global.scss");
+
+.frey-button {
+	--button-px-base: 1rem;
+	--button-py-base: 0.5rem;
+	--button-icon-p-base: 0.5rem;
+
+	display: inline-flex;
+
+	align-items: center;
+	column-gap: calc((var(--button-px) - var(--button-py)));
+
+	background-color: transparent;
+
+	border-width: 1px;
+	border-style: solid;
+	border-color: var(--frey-foreground);
+
+	outline: none;
+
+	padding-inline: var(--button-px);
+	padding-block: var(--button-py);
+
+	box-shadow: 0 0 0 var(--frey-foreground);
+
+	transition-property: box-shadow, translate;
+	transition-duration: var(--frey-animation-duration-m),
+		var(--frey-animation-duration-xs);
+	transition-timing-function: ease-out, ease-in;
+
+	cursor: pointer;
+
+	&:not(.disabled):hover {
+		box-shadow: var(--shadow-dx) var(--shadow-dy) 0 var(--frey-foreground);
+	}
+
+	&:active:not(.disabled) {
+		translate: 0 -2px;
+	}
+
+	&.inverted:not(.disabled) {
+		box-shadow: var(--shadow-dx) var(--shadow-dy) 0 var(--frey-foreground);
+
+		&.inverted:not(:has(.disabled)):hover {
+			box-shadow: 0 0 0 var(--frey-foreground);
+		}
+	}
+
+	&.disabled {
+		cursor: not-allowed;
+		opacity: var(--frey-disabled-opacity);
+		border-color: rgba(
+			$color: var(--frey-background),
+			$alpha: var(--frey-disabled-opacity)
+		);
+	}
+
+	&.size-s {
+		--shadow-dx: var(--frey-shadow-dx-s);
+		--shadow-dy: var(--frey-shadow-dy-s);
+		--button-px: calc(var(--button-px-base) / 4 * 3);
+		--button-py: calc(var(--button-py-base) / 4 * 3);
+
+		font-size: 0.75rem;
+
+		&.icon {
+			padding: calc(var(--button-icon-p-base) / 2);
+		}
+	}
+
+	&.size-m {
+		--shadow-dx: var(--frey-shadow-dx-m);
+		--shadow-dy: var(--frey-shadow-dy-m);
+		--button-px: var(--button-px-base);
+		--button-py: var(--button-py-base);
+
+		font-size: 1rem;
+
+		&.icon {
+			padding: var(--button-icon-p-base);
+		}
+	}
+
+	&.variant-empty {
+		background-color: var(--frey-background);
+	}
+
+	&.variant-fill {
+		background-color: var(--frey-foreground);
+		color: var(--frey-background);
+		border-color: var(--frey-background);
+	}
+
+	&__content-container {
+		display: inline-flex;
+		align-items: center;
+
+		&.start-content {
+			margin-left: calc((var(--button-px) - var(--button-py)) * -1);
+		}
+
+		&.end-content {
+			margin-right: calc((var(--button-px) - var(--button-py)) * -1);
+		}
+	}
+}
