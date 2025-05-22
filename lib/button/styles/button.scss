@@ -1,106 +1,107 @@
 .frey-button {
-	--button-px-base: 1rem;
-	--button-py-base: 0.5rem;
-	--button-icon-p-base: 0.5rem;
+  --button-px-base: 1rem;
+  --button-py-base: 0.5rem;
+  --button-font-size-base: 1rem;
+  --button-icon-p-base: 0.5rem;
 
-	display: inline-flex;
+  display: inline-flex;
 
-	align-items: center;
-	column-gap: calc((var(--button-px) - var(--button-py)));
+  align-items: center;
+  column-gap: calc((var(--button-px) - var(--button-py)));
 
-	background-color: transparent;
+  background-color: transparent;
 
-	border-width: var(--frey-border-m);
-	border-style: solid;
-	border-color: var(--frey-foreground);
+  border-width: var(--frey-border-m);
+  border-style: solid;
+  border-color: var(--frey-foreground);
 
-	outline: none;
+  outline: none;
 
-	padding-inline: var(--button-px);
-	padding-block: var(--button-py);
+  padding-inline: var(--button-px);
+  padding-block: var(--button-py);
 
-	box-shadow: 0 0 0 var(--frey-foreground);
+  box-shadow: 0 0 0 var(--frey-foreground);
 
-	transition-property: box-shadow, translate;
-	transition-duration: var(--frey-animation-duration-m),
-		var(--frey-animation-duration-xs);
-	transition-timing-function: ease-out, ease-in;
+  transition-property: box-shadow, translate;
+  transition-duration:
+    var(--frey-animation-duration-m), var(--frey-animation-duration-xs);
+  transition-timing-function: ease-out, ease-in;
 
-	cursor: pointer;
+  cursor: pointer;
 
-	&:not(.disabled):hover {
-		box-shadow: var(--shadow-dx) var(--shadow-dy) 0 var(--frey-foreground);
-	}
+  &:not(.disabled):hover {
+    box-shadow: var(--shadow-dx) var(--shadow-dy) 0 var(--frey-foreground);
+  }
 
-	&:active:not(.disabled) {
-		translate: 0 -2px;
-	}
+  &:active:not(.disabled) {
+    translate: 0 -2px;
+  }
 
-	&.inverted:not(.disabled) {
-		box-shadow: var(--shadow-dx) var(--shadow-dy) 0 var(--frey-foreground);
+  &.inverted:not(.disabled) {
+    box-shadow: var(--shadow-dx) var(--shadow-dy) 0 var(--frey-foreground);
 
-		&.inverted:not(:has(.disabled)):hover {
-			box-shadow: 0 0 0 var(--frey-foreground);
-		}
-	}
+    &.inverted:not(:has(.disabled)):hover {
+      box-shadow: 0 0 0 var(--frey-foreground);
+    }
+  }
 
-	&.disabled {
-		cursor: not-allowed;
-		opacity: var(--frey-disabled-opacity);
-		border-color: rgba(
-			$color: var(--frey-background),
-			$alpha: var(--frey-disabled-opacity)
-		);
-	}
+  &.disabled {
+    cursor: not-allowed;
+    opacity: var(--frey-disabled-opacity);
+    border-color: rgba(
+      $color: var(--frey-background),
+      $alpha: var(--frey-disabled-opacity)
+    );
+  }
 
-	&.size-s {
-		--shadow-dx: var(--frey-shadow-dx-s);
-		--shadow-dy: var(--frey-shadow-dy-s);
-		--button-px: calc(var(--button-px-base) / 4 * 3);
-		--button-py: calc(var(--button-py-base) / 4 * 3);
+  &.size-s {
+    --shadow-dx: var(--frey-shadow-dx-s);
+    --shadow-dy: var(--frey-shadow-dy-s);
+    --button-px: calc(var(--button-px-base) / 4 * 3);
+    --button-py: calc(var(--button-py-base) / 4 * 3);
 
-		font-size: 0.75rem;
+    font-size: calc(var(--button-font-size-base) * 0.75);
 
-		&.icon {
-			padding: calc(var(--button-icon-p-base) / 2);
-		}
-	}
+    &.icon {
+      padding: calc(var(--button-icon-p-base) / 2);
+    }
+  }
 
-	&.size-m {
-		--shadow-dx: var(--frey-shadow-dx-m);
-		--shadow-dy: var(--frey-shadow-dy-m);
-		--button-px: var(--button-px-base);
-		--button-py: var(--button-py-base);
+  &.size-m {
+    --shadow-dx: var(--frey-shadow-dx-m);
+    --shadow-dy: var(--frey-shadow-dy-m);
+    --button-px: var(--button-px-base);
+    --button-py: var(--button-py-base);
 
-		font-size: 1rem;
+    font-size: var(--button-font-size-base);
 
-		&.icon {
-			padding: var(--button-icon-p-base);
-		}
-	}
+    &.icon {
+      padding: var(--button-icon-p-base);
+    }
+  }
 
-	&.variant-empty {
-		background-color: var(--frey-background);
-	}
+  &.variant-empty {
+    background-color: var(--frey-background);
+  }
 
-	&.variant-fill {
-		background-color: var(--frey-foreground);
-		color: var(--frey-background);
-		border-color: var(--frey-background);
-	}
+  &.variant-fill {
+    background-color: var(--frey-foreground);
+    color: var(--frey-background);
+    border-color: var(--frey-background);
+  }
 
-	&__content-container {
-		display: inline-flex;
-		align-items: center;
+  &__content-container {
+    display: inline-flex;
+    align-items: center;
 
-		&.start-content {
-			justify-self: self-start;
-			margin-left: calc((var(--button-px) - var(--button-py)) * -1);
-		}
+    &.start-content {
+      justify-self: self-start;
+      margin-left: calc((var(--button-px) - var(--button-py)) * -1);
+    }
 
-		&.end-content {
-			margin-left: auto;
-			margin-right: calc((var(--button-px) - var(--button-py)) * -1);
-		}
-	}
+    &.end-content {
+      margin-left: auto;
+      margin-right: calc((var(--button-px) - var(--button-py)) * -1);
+    }
+  }
 }

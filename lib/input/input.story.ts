@@ -1,9 +1,14 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Input } from "./ui/input";
+import { Input, InputProps } from "./ui/input";
 
 const meta = {
-	component: Input,
-	argTypes: {},
+  component: Input,
+  argTypes: {
+    size: {
+      control: "inline-radio",
+      options: ["m", "s"] satisfies InputProps["size"][],
+    },
+  },
 } satisfies Meta<typeof Input>;
 
 export default meta;
@@ -11,12 +16,31 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const defaultProps: Story["args"] = {
-	isInvalid: false,
-	errors: null,
+  size: "m",
+  isInvalid: false,
+  errors: null,
+  placeholder: "Type something",
+  label: "",
 };
 
 export const Default: Story = {
-	args: {
-		...defaultProps,
-	},
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithLabel: Story = {
+  args: {
+    ...defaultProps,
+    label: "Label",
+  },
+};
+
+export const Invalid: Story = {
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    errors: "Invalid input",
+    label: "Label",
+  },
 };
