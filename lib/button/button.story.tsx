@@ -4,6 +4,7 @@ import { Button, ButtonProps } from "./ui/button";
 
 import { ArrowRightIcon } from "../../assets/arrow-right-icon";
 import { BellIcon } from "../../assets/bell-icon";
+import { Loader } from "../loader";
 
 const meta = {
 	component: Button,
@@ -28,20 +29,22 @@ const meta = {
 		},
 		startContent: {
 			control: "select",
-			options: ["bell", "arrow_right", "none"],
+			options: ["bell", "arrow_right", "loader", "none"],
 			mapping: {
 				none: undefined,
 				bell: <BellIcon width={20} height={20} />,
 				arrow_right: <ArrowRightIcon width={20} height={20} />,
+				loader: <Loader size={"s"} variant={"fill"} />,
 			},
 		},
 		endContent: {
 			control: "select",
-			options: ["bell", "arrow_right", "none"],
+			options: ["bell", "arrow_right", "loader", "none"],
 			mapping: {
 				none: undefined,
 				bell: <BellIcon width={20} height={20} />,
 				arrow_right: <ArrowRightIcon width={20} height={20} />,
+				loader: <Loader size={"s"} variant={"fill"} />,
 			},
 		},
 	},
@@ -95,8 +98,21 @@ export const Fill: Story = {
 export const Icon: Story = {
 	args: {
 		...defaultProps,
-		children: <BellIcon width={20} height={20} />,
+		children: "bell",
 		isIconOnly: true,
+	},
+
+	argTypes: {
+		children: {
+			control: "select",
+			options: ["bell", "arrow_right", "loader", "none"],
+			mapping: {
+				none: undefined,
+				bell: <BellIcon width={20} height={20} />,
+				arrow_right: <ArrowRightIcon width={20} height={20} />,
+				loader: <Loader size={"s"} variant={"fill"} />,
+			},
+		},
 	},
 };
 

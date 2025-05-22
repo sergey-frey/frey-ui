@@ -5,8 +5,9 @@ import scss from "rollup-plugin-scss";
 export default defineConfig({
 	entry: "lib/index.ts",
 	platform: "browser",
-	dts: true,
 	format: ["esm", "cjs"],
+	dts: true,
+	minify: true,
 	plugins: [
 		react(),
 		scss({

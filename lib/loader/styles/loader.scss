@@ -1,0 +1,59 @@
+.frey-loader {
+	--loader-size-base: 1rem;
+
+	display: inline-flex;
+
+	width: var(--loader-size);
+	height: var(--loader-size);
+
+	border-width: 1px;
+	border-style: solid;
+	border-color: var(--frey-foreground);
+
+	animation-name: frey-spin, frey-opacity-pulse;
+	animation-duration: var(--frey-animation-duration-2xl),
+		var(--frey-animation-duration-2xl);
+	animation-timing-function: linear, ease-in-out;
+	animation-iteration-count: infinite;
+
+	@keyframes frey-spin {
+		0% {
+			rotate: 0;
+		}
+		100% {
+			rotate: 360deg;
+		}
+	}
+
+	@keyframes frey-opacity-pulse {
+		0% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.5;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	&.size-s {
+		--loader-size: calc(var(--loader-size-base) * 0.6);
+	}
+
+	&.size-m {
+		--loader-size: var(--loader-size-base);
+	}
+
+	&.size-l {
+		--loader-size: calc(var(--loader-size-base) * 1.3);
+	}
+
+	&.variant-fill {
+		background-color: var(--frey-foreground);
+	}
+
+	&.variant-empty {
+		background-color: var(--frey-background);
+	}
+}
