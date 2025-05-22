@@ -1,2 +1,2 @@
 # frey-ui
-Tailwind UI Library
+UI Library
