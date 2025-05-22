@@ -1,0 +1,15 @@
+@use "../../styles//global.scss" as *;
+
+.frey-input {
+	display: flex;
+
+	border-width: var(--frey-border-m);
+	border-style: solid;
+	border-color: var(--frey-foreground);
+
+	input {
+		border: none;
+		outline: none;
+		width: 100%;
+	}
+}

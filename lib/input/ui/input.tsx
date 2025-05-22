@@ -1,7 +1,18 @@
-import "../styles/input.scss"
+import { InputHTMLAttributes, ReactNode } from "react";
+import { inputVariants, InputVariantsProps } from "./input-variants";
 
-export type InputProps = {};
+import "../styles/input.scss";
 
-export const Input = ({}: InputProps) => {
-    return <></>
-}
+export type InputProps = InputVariantsProps &
+	InputHTMLAttributes<HTMLInputElement> & {
+		isInvalid?: boolean;
+		errors?: ReactNode;
+	};
+
+export const Input = ({ className, isInvalid, ...inputProps }: InputProps) => {
+	return (
+		<div className={inputVariants({ className })}>
+			<input {...inputProps} />
+		</div>
+	);
+};

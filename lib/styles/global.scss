@@ -1,5 +1,5 @@
 :root {
-	--frey-background: #f3f3f3;
+	--frey-background: #fefcfc;
 	--frey-foreground: #3d3d3d;
 
 	--frey-shadow-dx-s: 2px;
@@ -20,4 +20,8 @@
 	--frey-animation-duration-l: 300ms;
 	--frey-animation-duration-xl: 500ms;
 	--frey-animation-duration-2xl: 700ms;
+
+	--frey-border-m: 1px;
+	--frey-border-l: 2px;
+	--frey-border-xl: 2px;
 }
