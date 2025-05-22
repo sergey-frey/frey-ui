@@ -45,6 +45,22 @@ const meta = {
 			},
 		},
 	},
+
+	decorators: [
+		(Story) => {
+			return (
+				<div
+					style={{
+						width: "100%",
+						display: "flex",
+						justifyContent: "center",
+					}}
+				>
+					<Story />
+				</div>
+			);
+		},
+	],
 } satisfies Meta<typeof Button>;
 
 export default meta;
