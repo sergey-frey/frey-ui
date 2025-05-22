@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, ReactNode } from "react";
+import { InputHTMLAttributes, ReactNode, useId } from "react";
 import { inputVariants, InputVariantsProps } from "./input-variants";
 
 import "../styles/input.scss";
@@ -9,6 +9,8 @@ export type InputProps = InputVariantsProps &
     isInvalid?: boolean;
     errors?: ReactNode;
     label?: string;
+    startContent?: ReactNode;
+    endContent?: ReactNode;
   };
 
 export const Input = ({
@@ -16,23 +18,37 @@ export const Input = ({
   size,
   errors,
   label,
+  startContent,
+  endContent,
   className,
   ...inputProps
 }: InputProps) => {
   const hasErrors = Boolean(errors);
 
   return (
-    <div
-      className={clsx(
-        "frey-input",
-        inputVariants({ size, isInvalid, className }),
-      )}
+    <label
+      className={inputVariants({
+        size,
+        isInvalid,
+        withStartContent: Boolean(startContent),
+        className,
+      })}
     >
-      {label && <label className="frey-input__label">{label}</label>}
+      {label && <div className="frey-input__label">{label}</div>}
       <div className="frey-input__container">
+        {startContent && (
+          <span className="frey-input__content-container start-content">
+            {startContent}
+          </span>
+        )}
         <input {...inputProps} />
+        {endContent && (
+          <span className="frey-input__content-container end-content">
+            {endContent}
+          </span>
+        )}
       </div>
       {hasErrors && <div className="frey-input__errors">{errors}</div>}
-    </div>
+    </label>
   );
 };

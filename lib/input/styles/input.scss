@@ -47,6 +47,7 @@
 
   &__container {
     display: flex;
+    align-items: center;
 
     background-color: var(--frey-background);
 
@@ -81,6 +82,20 @@
 
       padding-inline: var(--input-px);
       padding-block: var(--input-py);
+    }
+
+  }
+
+  &__content-container {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  &.with-start-content &__container {
+    padding-inline: var(--input-py);
+
+    input {
+      padding-inline: var(--input-py);
     }
   }
 

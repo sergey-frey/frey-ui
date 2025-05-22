@@ -1,6 +1,6 @@
 import { cva, VariantProps } from "class-variance-authority";
 
-export const inputVariants = cva([], {
+export const inputVariants = cva(["frey-input"], {
   variants: {
     size: {
       m: ["size-m"],
@@ -8,6 +8,10 @@ export const inputVariants = cva([], {
     },
     isInvalid: {
       true: "invalid",
+      false: "",
+    },
+    withStartContent: {
+      true: "with-start-content",
       false: "",
     },
   },
