@@ -94,10 +94,12 @@
 		align-items: center;
 
 		&.start-content {
+			justify-self: self-start;
 			margin-left: calc((var(--button-px) - var(--button-py)) * -1);
 		}
 
 		&.end-content {
+			margin-left: auto;
 			margin-right: calc((var(--button-px) - var(--button-py)) * -1);
 		}
 	}
