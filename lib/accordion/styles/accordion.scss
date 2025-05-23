@@ -1,0 +1,9 @@
+.frey-accordion {
+  --accordion-px-base: 1rem;
+  --accordion-py-base: 0.5rem;
+  --accordion-font-size-base: 1rem;
+  --accordion-letter-spacing-base: 1px;
+
+  display: flex;
+  flex-direction: column;
+}

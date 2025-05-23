@@ -26,3 +26,7 @@
   --frey-border-l: 2px;
   --frey-border-xl: 2px;
 }
+
+body {
+  font-family: "Inconsolata Variable", monospace;
+}
