@@ -94,13 +94,16 @@
     display: inline-flex;
     align-items: center;
 
-    &.start-content {
-      margin-left: calc((var(--button-px) - var(--button-py)) * -1);
-    }
-
     &.end-content {
       margin-left: auto;
-      margin-right: calc((var(--button-px) - var(--button-py)) * -1);
     }
+  }
+
+  &.with-start-content {
+    padding-left: var(--button-py);
+  }
+
+  &.with-end-content {
+    padding-right: var(--button-py);
   }
 }

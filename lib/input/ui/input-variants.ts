@@ -14,11 +14,17 @@ export const inputVariants = cva(["frey-input"], {
       true: "with-start-content",
       false: "",
     },
+    withEndContent: {
+      true: "with-end-content",
+      false: "",
+    },
   },
 
   defaultVariants: {
     size: "m",
     isInvalid: false,
+    withStartContent: false,
+    withEndContent: false,
   },
 });
 

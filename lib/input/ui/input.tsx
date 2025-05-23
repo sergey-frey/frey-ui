@@ -1,8 +1,12 @@
-import { InputHTMLAttributes, ReactNode, useId } from "react";
+import {
+  ChangeEvent,
+  InputHTMLAttributes,
+  ReactNode,
+  useCallback,
+} from "react";
 import { inputVariants, InputVariantsProps } from "./input-variants";
 
 import "../styles/input.scss";
-import clsx from "clsx";
 
 export type InputProps = InputVariantsProps &
   Omit<InputHTMLAttributes<HTMLInputElement>, "size"> & {
@@ -11,6 +15,7 @@ export type InputProps = InputVariantsProps &
     label?: string;
     startContent?: ReactNode;
     endContent?: ReactNode;
+    onValueChange?: (value: string) => void;
   };
 
 export const Input = ({
@@ -21,9 +26,19 @@ export const Input = ({
   startContent,
   endContent,
   className,
+  onChange,
+  onValueChange,
   ...inputProps
 }: InputProps) => {
   const hasErrors = Boolean(errors);
+
+  const handleValueChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      onChange?.(e);
+      onValueChange?.(e.target.value);
+    },
+    [onChange, onValueChange],
+  );
 
   return (
     <label
@@ -31,6 +46,7 @@ export const Input = ({
         size,
         isInvalid,
         withStartContent: Boolean(startContent),
+        withEndContent: Boolean(endContent),
         className,
       })}
     >
@@ -41,7 +57,7 @@ export const Input = ({
             {startContent}
           </span>
         )}
-        <input {...inputProps} />
+        <input {...inputProps} onChange={handleValueChange} />
         {endContent && (
           <span className="frey-input__content-container end-content">
             {endContent}

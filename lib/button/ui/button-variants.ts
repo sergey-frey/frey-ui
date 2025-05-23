@@ -22,6 +22,14 @@ export const buttonVariants = cva(["frey-button"], {
       true: "disabled",
       false: "",
     },
+    withStartContent: {
+      true: "with-start-content",
+      false: "",
+    },
+    withEndContent: {
+      true: "with-end-content",
+      false: "",
+    },
   },
   defaultVariants: {
     size: "m",
@@ -29,6 +37,8 @@ export const buttonVariants = cva(["frey-button"], {
     isIconOnly: false,
     isInvertedBehavior: false,
     disabled: false,
+    withStartContent: false,
+    withEndContent: false,
   },
 });
 

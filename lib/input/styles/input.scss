@@ -83,7 +83,6 @@
       padding-inline: var(--input-px);
       padding-block: var(--input-py);
     }
-
   }
 
   &__content-container {
@@ -92,10 +91,18 @@
   }
 
   &.with-start-content &__container {
-    padding-inline: var(--input-py);
+    padding-left: var(--input-py);
 
     input {
-      padding-inline: var(--input-py);
+      padding-left: var(--input-py);
+    }
+  }
+
+  &.with-end-content &__container {
+    padding-right: var(--input-py);
+
+    input {
+      padding-right: var(--input-py);
     }
   }
 

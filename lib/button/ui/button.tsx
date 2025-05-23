@@ -29,6 +29,8 @@ export const Button = ({
         isIconOnly,
         isInvertedBehavior,
         disabled: props.disabled,
+        withStartContent: Boolean(startContent),
+        withEndContent: Boolean(endContent),
         className,
       })}
     >
