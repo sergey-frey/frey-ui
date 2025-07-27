@@ -4,6 +4,117 @@
   --accordion-font-size-base: 1rem;
   --accordion-letter-spacing-base: 1px;
 
+  
   display: flex;
   flex-direction: column;
+
+  font-size: var(--accordion-font-size);
+  letter-spacing: var(--accordion-letter-spacing);
+
+  border-width: var(--frey-border-m);
+  border-style: solid;
+  border-color: var(--frey-foreground);
+
+  box-shadow: 0 0 0 var(--frey-foreground);
+
+  transition-property: box-shadow;
+  transition-duration: var(--frey-animation-duration-m);
+  transition-timing-function: ease-out;
+
+  &.size-s {
+    --shadow-dx: var(--frey-shadow-dx-s);
+    --shadow-dy: var(--frey-shadow-dy-s);
+    --accordion-px: calc(var(--accordion-px-base) / 2);
+    --accordion-py: calc(var(--accordion-py-base) / 2);
+    --accordion-font-size: calc(var(--accordion-font-size-base) * 0.9);
+    --accordion-letter-spacing: calc(var(--accordion-letter-spacing-base));
+  }
+
+  &.size-m {
+    --accordion-px: var(--accordion-px-base);
+    --accordion-py: var(--accordion-py-base);
+    --accordion-font-size: var(--accordion-font-size-base);
+    --accordion-letter-spacing: var(--accordion-letter-spacing-base);
+  }
+
+  &:has(&__trigger:hover) {
+    box-shadow: var(--frey-shadow-dx-m) var(--frey-shadow-dy-m) 0
+      var(--frey-foreground);
+  }
+
+  &__trigger,
+  &__content {
+    padding-inline: var(--accordion-px);
+    padding-block: var(--accordion-py);
+  }
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+
+    font-size: inherit;
+    letter-spacing: inherit;
+
+    border-bottom-width: var(--frey-border-m);
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+
+    cursor: pointer;
+
+    transition-property: border-bottom-color;
+    transition-duration: var(--frey-animation-duration-m);
+    transition-timing-function: ease-out;
+  }
+
+  &.open &__trigger {
+    border-bottom-color: var(--frey-foreground);
+  }
+
+  &__indicator {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  &__default-indicator {
+    width: calc(1rem + var(--accordion-py));
+    height: calc(1rem + var(--accordion-py));
+
+    border-width: var(--frey-border-m);
+    border-style: solid;
+    border-color: var(--frey-foreground);
+
+    padding: calc((var(--accordion-py)) / 2);
+
+    rotate: 90deg;
+
+    transition-property: rotate;
+    transition-duration: var(--frey-animation-duration-m);
+    transition-timing-function: ease-out;
+  }
+
+  &.open &__default-indicator {
+    rotate: 0deg;
+  }
+
+  &__content {
+    overflow: hidden;
+    height: 0;
+    padding-block: 0;
+    margin-top: 0;
+
+    transition-property: height, margin-top;
+    transition-duration: var(--frey-animation-duration-m);
+    transition-timing-function: ease-out;
+  }
+
+  &.open {
+    padding-bottom: var(--accordion-py);
+  }
+
+  &.open &__content {
+    margin-top: var(--accordion-py);
+  }
 }

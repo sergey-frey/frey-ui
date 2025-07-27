@@ -28,6 +28,16 @@ export default defineConfig({
         return `frey-ui.${ext}`;
       },
     },
+
+    rollupOptions: {
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
+    },
   },
   plugins: [
     dts({
