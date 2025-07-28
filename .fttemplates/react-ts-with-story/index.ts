@@ -1,0 +1,1 @@
+export { <FTName | pascalcase>, type <FTName | pascalcase>Props } from "./ui/[FTName]";

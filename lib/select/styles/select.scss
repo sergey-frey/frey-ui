@@ -1,0 +1,32 @@
+.frey-select {
+  --select-max-w: 200px;
+
+  position: relative;
+
+  max-width: var(--select-max-w);
+  width: 100%;
+
+  &__trigger {
+    width: 100%;
+
+    &:active:not(.disabled) {
+      translate: 0 0;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    top: calc(0);
+
+    max-width: var(--select-max-w);
+    width: 100%;
+
+    list-style: none;
+
+    padding: 0;
+    margin: 0;
+    background-color: var(--frey-color-bg-primary);
+    border-radius: var(--frey-radius-md);
+    box-shadow: var(--frey-shadow-md);
+  }
+}

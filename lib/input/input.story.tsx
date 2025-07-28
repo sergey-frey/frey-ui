@@ -77,3 +77,18 @@ export const WithStartAndEndContent: Story = {
     endContent: "loader",
   },
 };
+
+export const WithCSSVariables: Story = {
+  args: {
+    ...defaultProps,
+    label: "Custom Input",
+    placeholder: "Type something",
+    style: {
+      "--input-px": "1.5rem",
+      "--input-py": "0.75rem",
+      "--input-font-size": "1.2rem",
+      "--input-letter-spacing": "2px",
+      "--frey-foreground": "#0066cc",
+    },
+  },
+};
