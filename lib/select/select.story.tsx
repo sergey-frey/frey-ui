@@ -1,27 +1,9 @@
 import { Meta, StoryObj } from "@storybook/react";
-import {
-  SelectContent,
-  SelectItem,
-  SelectRoot,
-  SelectTrigger,
-} from "./ui/select";
-
-const meta = {
-  component: () => {
-    return (
-      <SelectRoot>
-        <SelectTrigger>Select</SelectTrigger>
-        <SelectContent>
-          <SelectItem>Item 1</SelectItem>
-          <SelectItem>Item 2</SelectItem>
-          <SelectItem>Item 3</SelectItem>
-        </SelectContent>
-      </SelectRoot>
-    );
-  },
-} satisfies Meta<typeof SelectRoot>;
-
-export default meta;
+import { useState } from "react";
+import { SelectContent } from "./ui/select-content";
+import { SelectItem } from "./ui/select-item";
+import { SelectRoot } from "./ui/select-root";
+import { SelectTrigger } from "./ui/select-trigger";
 
 type Story = StoryObj<typeof SelectRoot>;
 
@@ -30,5 +12,60 @@ const defaultProps: Story["args"] = {};
 export const Default: Story = {
   args: {
     ...defaultProps,
+    isInvertedBehavior: false,
   },
 };
+
+const meta = {
+  component: ({ isInvertedBehavior }: any) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [value, setValue] = useState("");
+
+    return (
+      <SelectRoot
+        isOpen={isOpen}
+        value={value}
+        onOpenChange={setIsOpen}
+        onValueChange={setValue}
+        isInvertedBehavior={isInvertedBehavior}
+      >
+        <SelectTrigger>Select favorite fruit</SelectTrigger>
+        <SelectContent topOffset={7}>
+          <SelectItem value="Apple 🍎">Apple 🍎</SelectItem>
+          <SelectItem value="Banana 🍌">Banana 🍌</SelectItem>
+          <SelectItem value="Cherry 🍒">Cherry 🍒</SelectItem>
+          <SelectItem value="Date 🍇">Date 🍇</SelectItem>
+          <SelectItem value="Elderberry 🍇">Elderberry 🍇</SelectItem>
+          <SelectItem value="Fig 🍇">Fig 🍇</SelectItem>
+          <SelectItem value="Grape 🍇">Grape 🍇</SelectItem>
+          <SelectItem value="Honeydew 🍇">Honeydew 🍇</SelectItem>
+          <SelectItem value="Kiwi 🍇">Kiwi 🍇</SelectItem>
+          <SelectItem value="Lemon 🍇">Lemon 🍇</SelectItem>
+          <SelectItem value="Lime 🍇">Lime 🍇</SelectItem>
+          <SelectItem value="Mango 🍇">Mango 🍇</SelectItem>
+          <SelectItem value="Melon 🍇">Melon 🍇</SelectItem>
+          <SelectItem value="Nectarine 🍇">Nectarine 🍇</SelectItem>
+          <SelectItem value="Orange 🍇">Orange 🍇</SelectItem>
+          <SelectItem value="Papaya 🍇">Papaya 🍇</SelectItem>
+          <SelectItem value="Peach 🍇">Peach 🍇</SelectItem>
+          <SelectItem value="Pear 🍇">Pear 🍇</SelectItem>
+          <SelectItem value="Pineapple 🍇">Pineapple 🍇</SelectItem>
+          <SelectItem value="Plum 🍇">Plum 🍇</SelectItem>
+          <SelectItem value="Pomegranate 🍇">Pomegranate 🍇</SelectItem>
+          <SelectItem value="Raspberry 🍇">Raspberry 🍇</SelectItem>
+          <SelectItem value="Strawberry 🍇">Strawberry 🍇</SelectItem>
+          <SelectItem value="Tangerine 🍇">Tangerine 🍇</SelectItem>
+          <SelectItem value="Watermelon 🍇">Watermelon 🍇</SelectItem>
+        </SelectContent>
+      </SelectRoot>
+    );
+  },
+  argTypes: {
+    isInvertedBehavior: {
+      control: "boolean",
+      description: "Shadow 'opened' without interaction",
+    },
+  },
+} satisfies Meta<typeof SelectRoot>;
+
+export default meta;

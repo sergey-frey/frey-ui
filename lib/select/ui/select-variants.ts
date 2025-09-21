@@ -5,6 +5,14 @@ export const selectVariants = cva(["frey-select"], {
     size: {
       m: "size-m",
     },
+    isInvertedBehavior: {
+      true: "inverted",
+      false: "",
+    },
+  },
+  defaultVariants: {
+    size: "m",
+    isInvertedBehavior: false,
   },
 });
 

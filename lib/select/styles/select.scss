@@ -1,32 +1,103 @@
 .frey-select {
   --select-max-w: 200px;
+  --select-item-px-base: 0.5rem;
+  --select-item-py-base: 0.25rem;
+  --select-content-row-gap-base: 0.15rem;
+  --select-font-size-base: 1rem;
+
+  --select-font-size: var(--select-font-size-base);
+
+  --select-content-row-gap: var(--select-content-row-gap-base);
+
+  --select-item-px: var(--select-item-px-base);
+  --select-item-py: var(--select-item-py-base);
+  --select-item-shadow-dx: var(--frey-shadow-dx-m);
+  --select-item-shadow-dy: var(--frey-shadow-dy-m);
+  --select-item-border-width: var(--frey-border-m);
 
   position: relative;
 
   max-width: var(--select-max-w);
   width: 100%;
 
+  font-size: var(--select-font-size);
+
+  // Button
   &__trigger {
     width: 100%;
 
-    &:active:not(.disabled) {
+    &.open {
+      box-shadow: var(--select-item-shadow-dx) var(--select-item-shadow-dy) 0
+        var(--frey-foreground);
+    }
+
+    &:active:not(.disabled)[data-id="select-trigger"] {
       translate: 0 0;
+    }
+  }
+
+  &.inverted {
+    .frey-select__trigger {
+      &.open {
+        box-shadow: 0 0 0 var(--frey-foreground);
+      }
     }
   }
 
   &__content {
     position: absolute;
-    top: calc(0);
+    top: calc(100% + var(--content-top-offset));
 
     max-width: var(--select-max-w);
     width: 100%;
+    max-height: 200px;
 
     list-style: none;
 
     padding: 0;
     margin: 0;
-    background-color: var(--frey-color-bg-primary);
-    border-radius: var(--frey-radius-md);
-    box-shadow: var(--frey-shadow-md);
+
+    background-color: var(--frey-background);
+    box-shadow: 0 0 0 var(--frey-foreground);
+
+    transition-property: box-shadow;
+    transition-duration: var(--frey-animation-duration-m);
+    transition-timing-function: ease-out;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--select-content-row-gap);
+  }
+
+  &__item {
+    border-width: var(--select-item-border-width);
+    border-style: solid;
+    border-color: var(--frey-foreground);
+
+    padding-inline: var(--select-item-px);
+    padding-block: var(--select-item-py);
+
+    font-size: calc(var(--select-font-size) * 0.85);
+
+    cursor: pointer;
+
+    translate: 0 -20%;
+    opacity: 0;
+    pointer-events: none;
+
+    transition-property: box-shadow, translate, opacity;
+    transition-duration: var(--frey-animation-duration-m);
+    transition-timing-function: ease-out;
+
+    &:hover {
+      box-shadow: var(--select-item-shadow-dx) var(--select-item-shadow-dy) 0
+        var(--frey-foreground);
+    }
+
+    &.open {
+      translate: 0 0;
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 }
