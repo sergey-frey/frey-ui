@@ -4,17 +4,15 @@ import { ReactNode, useCallback, useMemo } from "react";
 import { useSelect, useSelectActions } from "../model/select-context";
 
 import "../styles/select.scss";
+import { useSelectSlots } from "../model/select-slots-context";
+import { useSelectConfig } from "../model/select-config-context";
 
-export type SelectTriggerProps = ButtonProps & {
-  openIndicator?: ReactNode;
-};
+export type SelectTriggerProps = ButtonProps;
 
-export const SelectTrigger = ({
-  className,
-  openIndicator,
-  ...props
-}: SelectTriggerProps) => {
-  const { isOpen, value, isInvertedBehavior } = useSelect();
+export const SelectTrigger = ({ className, ...props }: SelectTriggerProps) => {
+  const { isOpen, value } = useSelect();
+  const { isInvertedBehavior } = useSelectConfig();
+  const { selectIndicator } = useSelectSlots();
   const { open, close } = useSelectActions();
 
   const handleClick = useCallback(() => {
@@ -34,7 +32,7 @@ export const SelectTrigger = ({
       {...props}
       className={clsx("frey-select__trigger", { open: isOpen }, className)}
       isInvertedBehavior={isInvertedBehavior ?? props.isInvertedBehavior}
-      endContent={openIndicator ?? props.endContent}
+      endContent={selectIndicator ?? props.endContent}
       onClick={handleClick}
       data-id="select-trigger"
     >

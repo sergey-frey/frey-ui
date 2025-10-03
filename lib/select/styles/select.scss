@@ -1,5 +1,4 @@
 .frey-select {
-  --select-max-w: 200px;
   --select-item-px-base: 0.5rem;
   --select-item-py-base: 0.25rem;
   --select-content-row-gap-base: 0.15rem;
@@ -7,7 +6,11 @@
 
   --select-font-size: var(--select-font-size-base);
 
+  --select-content-max-height: 300px;
   --select-content-row-gap: var(--select-content-row-gap-base);
+  --select-content-scroll-shadow-height: 1rem;
+  --select-content-top-scroll-shadow-threshold: 0.75rem;
+  --select-content-bottom-scroll-shadow-threshold: 0.75rem;
 
   --select-item-px: var(--select-item-px-base);
   --select-item-py: var(--select-item-py-base);
@@ -17,7 +20,6 @@
 
   position: relative;
 
-  max-width: var(--select-max-w);
   width: 100%;
 
   font-size: var(--select-font-size);
@@ -45,20 +47,34 @@
   }
 
   &__content {
-    position: absolute;
-    top: calc(100% + var(--content-top-offset));
+    &-container {
+      position: absolute;
+      top: calc(100% + var(--content-top-offset));
+      width: 100%;
+      max-height: var(--select-content-max-height);
+      display: grid;
+      overflow: hidden;
+      padding-bottom: var(--select-item-shadow-dy);
 
-    max-width: var(--select-max-w);
-    width: 100%;
-    max-height: 200px;
+      pointer-events: none;
+
+      &.open {
+        pointer-events: auto;
+      }
+    }
+
+    flex-grow: 1;
+
+    max-width: inherit;
+    max-height: inherit;
+    overflow: auto;
 
     list-style: none;
 
     padding: 0;
-    margin: 0;
+    padding-bottom: var(--select-item-shadow-dy);
 
-    background-color: var(--frey-background);
-    box-shadow: 0 0 0 var(--frey-foreground);
+    margin: 0;
 
     transition-property: box-shadow;
     transition-duration: var(--frey-animation-duration-m);
@@ -67,6 +83,58 @@
     display: flex;
     flex-direction: column;
     row-gap: var(--select-content-row-gap);
+
+    &::before {
+      content: "";
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--select-content-scroll-shadow-height);
+
+      background: linear-gradient(
+        to bottom,
+        var(--frey-foreground),
+        transparent
+      );
+      opacity: 0;
+
+      pointer-events: none;
+      z-index: 1;
+
+      transition-property: opacity;
+      transition-duration: var(--frey-animation-duration-m);
+      transition-timing-function: ease-out;
+    }
+
+    &.has-top-shadow::before {
+      opacity: 0.6;
+    }
+
+    &::after {
+      content: "";
+
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: var(--select-content-scroll-shadow-height);
+
+      background: linear-gradient(to top, var(--frey-foreground), transparent);
+      opacity: 0;
+
+      pointer-events: none;
+      z-index: 1;
+
+      transition-property: opacity;
+      transition-duration: var(--frey-animation-duration-m);
+      transition-timing-function: ease-out;
+    }
+
+    &.has-bottom-shadow::after {
+      opacity: 0.6;
+    }
   }
 
   &__item {
@@ -98,6 +166,15 @@
       translate: 0 0;
       opacity: 1;
       pointer-events: auto;
+    }
+
+    &.inverted {
+      box-shadow: var(--select-item-shadow-dx) var(--select-item-shadow-dy) 0
+        var(--frey-foreground);
+
+      &:hover {
+        box-shadow: 0 0 0 var(--frey-foreground);
+      }
     }
   }
 }

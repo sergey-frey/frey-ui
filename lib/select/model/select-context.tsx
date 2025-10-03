@@ -12,7 +12,6 @@ import "../styles/select.scss";
 export const SelectContext = createContext<SelectContextType>({
   isOpen: false,
   value: "",
-  isInvertedBehavior: false,
 });
 
 export const SelectActionsContext = createContext<SelectActionsContextType>({
@@ -41,7 +40,6 @@ export const SelectProvider = ({
   children,
   isOpen,
   value,
-  isInvertedBehavior = false,
   onOpenChange,
   onValueChange,
 }: SelectProviderProps) => {
@@ -79,7 +77,7 @@ export const SelectProvider = ({
   }, [close]);
 
   return (
-    <SelectContext.Provider value={{ isOpen, value, isInvertedBehavior }}>
+    <SelectContext.Provider value={{ isOpen, value }}>
       <SelectActionsContext.Provider
         value={{ open, close, onValueChange: handleValueChange }}
       >
