@@ -36,7 +36,12 @@ const meta = {
     contentScrollShadowHeight,
     topScrollShadowThreshold,
     bottomScrollShadowThreshold,
-  }: any) => {
+  }: {
+    isInvertedBehavior: boolean;
+    contentScrollShadowHeight: string;
+    topScrollShadowThreshold: number;
+    bottomScrollShadowThreshold: number;
+  }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [value, setValue] = useState("");
 
