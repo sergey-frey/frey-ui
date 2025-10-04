@@ -1,10 +1,17 @@
-import { HTMLAttributes, ReactNode, useCallback, useState } from "react";
 import {
+  type HTMLAttributes,
+  type ReactNode,
+  useCallback,
+  useState,
+} from "react";
+
+import {
+  type AccordionVariantsProps,
   accordionVariants,
-  AccordionVariantsProps,
 } from "./accordion-variants";
 
 import "../styles/accordion.scss";
+
 import { DefaultAccordionIndicator } from "./default-accordion-indicator";
 
 export type AccordionProps = AccordionVariantsProps &
@@ -47,7 +54,11 @@ export const Accordion = ({
       {...accordionProps}
       className={accordionVariants({ isOpen, size, className })}
     >
-      <button className="frey-accordion__trigger" onClick={handleOpenChange}>
+      <button
+        type="button"
+        className="frey-accordion__trigger"
+        onClick={handleOpenChange}
+      >
         {label}
 
         <span className="frey-accordion__indicator">{indicator}</span>

@@ -1,4 +1,4 @@
-export type SelectOption = {
+export interface ISelectOption {
   label: string;
   value: string;
-};
+}

@@ -1,10 +1,12 @@
-import { PropsWithChildren, useRef } from "react";
-
 import clsx from "clsx";
+import { type PropsWithChildren, useRef } from "react";
+
 import { useVerticalScrollInfo } from "../../utils";
-import { useSelect } from "../model/select-context";
-import "../styles/select.scss";
 import { useSelectConfig } from "../model/select-config-context";
+
+import "../styles/select.scss";
+
+import { useSelect } from "../model/select-context";
 
 export type SelectContentProps = PropsWithChildren<{
   topOffset?: number | string;

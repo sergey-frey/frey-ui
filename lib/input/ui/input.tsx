@@ -1,10 +1,11 @@
 import {
-  ChangeEvent,
-  InputHTMLAttributes,
-  ReactNode,
+  type ChangeEvent,
+  type InputHTMLAttributes,
+  type ReactNode,
   useCallback,
 } from "react";
-import { inputVariants, InputVariantsProps } from "./input-variants";
+
+import { type InputVariantsProps, inputVariants } from "./input-variants";
 
 import "../styles/input.scss";
 

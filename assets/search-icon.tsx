@@ -11,6 +11,7 @@ export const SearchIcon = ({ ...props }: SVGAttributes<SVGElement>) => {
       className="size-6"
       {...props}
     >
+      <title>Search</title>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

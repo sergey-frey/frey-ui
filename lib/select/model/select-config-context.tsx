@@ -1,16 +1,15 @@
-import { createContext, PropsWithChildren, ReactNode, useContext } from "react";
-import { SelectConfigContextType } from "../types";
+import type { ISelectConfigContextType } from "../types";
 
-export const SelectConfigContext = createContext<SelectConfigContextType>({
+import { type PropsWithChildren, createContext, useContext } from "react";
+
+export const SelectConfigContext = createContext<ISelectConfigContextType>({
   isInvertedBehavior: false,
   contentScrollShadowHeight: "1rem",
   topScrollShadowThreshold: 10,
   bottomScrollShadowThreshold: 10,
 });
 
-export const useSelectConfig = () => {
-  return useContext(SelectConfigContext);
-};
+export const useSelectConfig = () => useContext(SelectConfigContext);
 
 type SelectConfigProviderProps = PropsWithChildren<{
   isInvertedBehavior: boolean;
@@ -22,10 +21,8 @@ type SelectConfigProviderProps = PropsWithChildren<{
 export const SelectConfigProvider = ({
   children,
   ...props
-}: SelectConfigProviderProps) => {
-  return (
-    <SelectConfigContext.Provider value={props}>
-      {children}
-    </SelectConfigContext.Provider>
-  );
-};
+}: SelectConfigProviderProps) => (
+  <SelectConfigContext.Provider value={props}>
+    {children}
+  </SelectConfigContext.Provider>
+);

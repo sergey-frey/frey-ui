@@ -11,6 +11,7 @@ export const ArrowRightIcon = ({ ...props }: SVGAttributes<SVGElement>) => {
       className="size-6"
       {...props}
     >
+      <title>Arrow Right</title>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

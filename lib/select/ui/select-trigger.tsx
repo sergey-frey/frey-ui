@@ -1,11 +1,12 @@
-import { ButtonProps, Button } from "../../button";
-import clsx from "clsx";
-import { ReactNode, useCallback, useMemo } from "react";
-import { useSelect, useSelectActions } from "../model/select-context";
-
 import "../styles/select.scss";
-import { useSelectSlots } from "../model/select-slots-context";
+
+import clsx from "clsx";
+import { useCallback, useMemo } from "react";
+
+import { Button, type ButtonProps } from "../../button";
 import { useSelectConfig } from "../model/select-config-context";
+import { useSelect, useSelectActions } from "../model/select-context";
+import { useSelectSlots } from "../model/select-slots-context";
 
 export type SelectTriggerProps = ButtonProps;
 
@@ -23,9 +24,10 @@ export const SelectTrigger = ({ className, ...props }: SelectTriggerProps) => {
     open();
   }, [open, close, isOpen]);
 
-  const children = useMemo(() => {
-    return value || props.children;
-  }, [props.children, value]);
+  const children = useMemo(
+    () => value || props.children,
+    [props.children, value],
+  );
 
   return (
     <Button

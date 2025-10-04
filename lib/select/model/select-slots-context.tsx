@@ -1,13 +1,17 @@
-import { createContext, PropsWithChildren, ReactNode, useContext } from "react";
-import { SelectSlotsContextType } from "../types";
+import type { ISelectSlotsContextType } from "../types";
 
-export const SelectSlotsContext = createContext<SelectSlotsContextType>({
+import {
+  type PropsWithChildren,
+  type ReactNode,
+  createContext,
+  useContext,
+} from "react";
+
+export const SelectSlotsContext = createContext<ISelectSlotsContextType>({
   selectIndicator: null,
 });
 
-export const useSelectSlots = () => {
-  return useContext(SelectSlotsContext);
-};
+export const useSelectSlots = () => useContext(SelectSlotsContext);
 
 export type SelectSlotsProviderProps = PropsWithChildren<{
   selectIndicator?: ReactNode;
@@ -16,10 +20,8 @@ export type SelectSlotsProviderProps = PropsWithChildren<{
 export const SelectSlotsProvider = ({
   children,
   selectIndicator,
-}: SelectSlotsProviderProps) => {
-  return (
-    <SelectSlotsContext.Provider value={{ selectIndicator }}>
-      {children}
-    </SelectSlotsContext.Provider>
-  );
-};
+}: SelectSlotsProviderProps) => (
+  <SelectSlotsContext.Provider value={{ selectIndicator }}>
+    {children}
+  </SelectSlotsContext.Provider>
+);

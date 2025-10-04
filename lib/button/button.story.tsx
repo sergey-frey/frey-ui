@@ -1,10 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Button, ButtonProps } from "./ui/button";
-
 import { ArrowRightIcon } from "../../assets/arrow-right-icon";
 import { BellIcon } from "../../assets/bell-icon";
 import { Loader } from "../loader";
+import { Button, type ButtonProps } from "./ui/button";
 
 const meta = {
   component: Button,
@@ -29,40 +28,38 @@ const meta = {
     },
     startContent: {
       control: "select",
-      options: ["bell", "arrow_right", "loader", "none"],
+      options: ["bell", "arrowRight", "loader", "none"],
       mapping: {
         none: undefined,
         bell: <BellIcon width={20} height={20} />,
-        arrow_right: <ArrowRightIcon width={20} height={20} />,
-        loader: <Loader size={"s"} variant={"fill"} />,
+        arrowRight: <ArrowRightIcon width={20} height={20} />,
+        loader: <Loader size="s" variant="fill" />,
       },
     },
     endContent: {
       control: "select",
-      options: ["bell", "arrow_right", "loader", "none"],
+      options: ["bell", "arrowRight", "loader", "none"],
       mapping: {
         none: undefined,
         bell: <BellIcon width={20} height={20} />,
-        arrow_right: <ArrowRightIcon width={20} height={20} />,
-        loader: <Loader size={"s"} variant={"fill"} />,
+        arrowRight: <ArrowRightIcon width={20} height={20} />,
+        loader: <Loader size="s" variant="fill" />,
       },
     },
   },
 
   decorators: [
-    (Story) => {
-      return (
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <Story />
-        </div>
-      );
-    },
+    (StoryComponent) => (
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <StoryComponent />
+      </div>
+    ),
   ],
 } satisfies Meta<typeof Button>;
 
@@ -105,12 +102,12 @@ export const Icon: Story = {
   argTypes: {
     children: {
       control: "select",
-      options: ["bell", "arrow_right", "loader", "none"],
+      options: ["bell", "arrowRight", "loader", "none"],
       mapping: {
         none: undefined,
         bell: <BellIcon width={20} height={20} />,
-        arrow_right: <ArrowRightIcon width={20} height={20} />,
-        loader: <Loader size={"s"} variant={"fill"} />,
+        arrowRight: <ArrowRightIcon width={20} height={20} />,
+        loader: <Loader size="s" variant="fill" />,
       },
     },
   },

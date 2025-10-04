@@ -1,4 +1,4 @@
-import { RefObject, useCallback, useEffect, useState } from "react";
+import { type RefObject, useCallback, useEffect, useState } from "react";
 
 interface IOptions<T extends HTMLElement> {
   scrollContainerRef: RefObject<T | null>;
@@ -17,7 +17,9 @@ export const useVerticalScrollInfo = <T extends HTMLElement>({
   const handleScroll = useCallback(() => {
     const scrollContainer = scrollContainerRef.current;
 
-    if (!scrollContainer) return;
+    if (!scrollContainer) {
+      return;
+    }
 
     setIsScrollAtTop(scrollContainer.scrollTop <= topThreshold);
 

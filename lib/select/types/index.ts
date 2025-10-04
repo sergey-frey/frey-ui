@@ -1,23 +1,23 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
-export type SelectContextType = {
+export interface ISelectContextType {
   isOpen: boolean;
   value: string;
-};
+}
 
-export type SelectActionsContextType = {
+export interface ISelectActionsContextType {
   open: () => void;
   close: () => void;
   onValueChange: (value: string) => void;
-};
+}
 
-export type SelectSlotsContextType = {
+export interface ISelectSlotsContextType {
   selectIndicator?: ReactNode;
-};
+}
 
-export type SelectConfigContextType = {
+export interface ISelectConfigContextType {
   isInvertedBehavior: boolean;
   contentScrollShadowHeight: string;
   topScrollShadowThreshold: number;
   bottomScrollShadowThreshold: number;
-};
+}

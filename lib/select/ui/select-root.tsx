@@ -1,22 +1,25 @@
-import { PropsWithChildren, ReactNode } from "react";
-import { SelectProvider, SelectProviderProps } from "../model/select-context";
-import {
-  SelectSlotsProvider,
-  SelectSlotsProviderProps,
-} from "../model/select-slots-context";
-import { DefaultSelectIndicator } from "../ui/_default-select-indicator";
-import { SelectVariantsProps, selectVariants } from "./select-variants";
+import "../styles/select.scss";
+
+import type { PropsWithChildren, ReactNode } from "react";
+import type { ISelectConfigContextType } from "../types";
 
 import { normalizeUnit } from "../../utils";
-
-import "../styles/select.scss";
-import { SelectConfigContextType } from "../types";
 import { SelectConfigProvider } from "../model/select-config-context";
+import {
+  SelectProvider,
+  type SelectProviderProps,
+} from "../model/select-context";
+import {
+  SelectSlotsProvider,
+  type SelectSlotsProviderProps,
+} from "../model/select-slots-context";
+import { DefaultSelectIndicator } from "../ui/_default-select-indicator";
+import { type SelectVariantsProps, selectVariants } from "./select-variants";
 
 export type SelectRootProps = PropsWithChildren<
   SelectProviderProps &
     SelectSlotsProviderProps &
-    Partial<SelectConfigContextType>
+    Partial<ISelectConfigContextType>
 > &
   SelectVariantsProps & {
     className?: string;

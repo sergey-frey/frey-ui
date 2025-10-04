@@ -11,6 +11,7 @@ export const BellIcon = ({ ...props }: SVGAttributes<SVGElement>) => {
       className="size-6"
       {...props}
     >
+      <title>Bell</title>
       <path
         strokeLinecap="round"
         strokeLinejoin="round"

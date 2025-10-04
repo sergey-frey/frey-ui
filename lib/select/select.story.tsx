@@ -1,5 +1,7 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { useState } from "react";
+
 import { SelectContent } from "./ui/select-content";
 import { SelectItem } from "./ui/select-item";
 import { SelectRoot } from "./ui/select-root";

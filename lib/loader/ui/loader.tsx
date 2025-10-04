@@ -1,10 +1,11 @@
-import { HTMLAttributes } from "react";
-import { loaderVariants, LoaderVariantsProps } from "./loader-variants";
+import type { HTMLAttributes } from "react";
+
+import { type LoaderVariantsProps, loaderVariants } from "./loader-variants";
 
 import "../styles/loader.scss";
 
 export type LoaderProps = LoaderVariantsProps & HTMLAttributes<HTMLDivElement>;
 
-export const Loader = ({ size, variant, className }: LoaderProps) => {
-  return <div className={loaderVariants({ size, variant, className })} />;
-};
+export const Loader = ({ size, variant, className }: LoaderProps) => (
+  <div className={loaderVariants({ size, variant, className })} />
+);

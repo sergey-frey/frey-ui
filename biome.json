@@ -1,0 +1,374 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
+  "vcs": {
+    "enabled": false,
+    "clientKind": "git",
+    "useIgnoreFile": false
+  },
+  "files": {
+    "ignoreUnknown": false
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space"
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": false,
+      "correctness": {
+        "noUnusedImports": {
+          "level": "error",
+          "fix": "safe"
+        },
+        "noUnusedVariables": {
+          "level": "error",
+          "fix": "safe",
+          "options": {
+            "ignoreRestSiblings": false
+          }
+        },
+        "noChildrenProp": "error",
+        "noConstAssign": {
+          "level": "error",
+          "fix": "none"
+        },
+        "noConstantCondition": "error",
+        "noConstantMathMinMaxClamp": "error",
+        "noConstructorReturn": "error",
+        "noEmptyPattern": "warn",
+        "noInvalidBuiltinInstantiation": "error",
+        "noInvalidUseBeforeDeclaration": "error",
+        "noNodejsModules": "error",
+        "noPrecisionLoss": "error",
+        "noProcessGlobal": "error",
+        "noReactPropAssignments": "error",
+        "noRestrictedElements": {
+          "level": "error",
+          "options": {
+            "elements": {}
+          }
+        },
+        "noStringCaseMismatch": "info",
+        "noSwitchDeclarations": "error",
+        "noUndeclaredVariables": {
+          "level": "error",
+          "options": {
+            "checkTypes": true
+          }
+        },
+        "noUnreachable": "error",
+        "noUnsafeFinally": "error",
+        "noUnsafeOptionalChaining": "error",
+        "noUnusedFunctionParameters": "warn",
+        "noVoidElementsWithChildren": "error",
+        "useHookAtTopLevel": "error",
+        "useIsNan": "error",
+        "useJsonImportAttributes": "error",
+        "useJsxKeyInIterable": "error",
+        "useValidTypeof": "error",
+        "useYield": "error"
+      },
+      "a11y": {
+        "noStaticElementInteractions": "error",
+        "noSvgWithoutTitle": "error",
+        "useAltText": "error",
+        "useSemanticElements": "error",
+        "useAriaPropsForRole": "error",
+        "useAriaPropsSupportedByRole": "error",
+        "useValidAriaValues": "error",
+        "useButtonType": "error"
+      },
+      "complexity": {
+        "noBannedTypes": "error",
+        "noCommaOperator": "error",
+        "noEmptyTypeParameters": "error",
+        "noForEach": "error",
+        "noImplicitCoercions": "error",
+        "noUselessCatch": "warn",
+        "noUselessConstructor": "warn",
+        "noUselessContinue": "warn",
+        "noUselessEmptyExport": "warn",
+        "noUselessFragments": "warn",
+        "noUselessLoneBlockStatements": "error",
+        "noUselessRename": "error",
+        "noUselessStringConcat": "error",
+        "noUselessSwitchCase": "error",
+        "noUselessTernary": "error",
+        "noUselessTypeConstraint": "error",
+        "useArrowFunction": "error",
+        "useFlatMap": "error",
+        "useIndexOf": "error",
+        "useLiteralKeys": "error",
+        "useNumericLiterals": "error",
+        "useOptionalChain": "error",
+        "useRegexLiterals": "error",
+        "useSimpleNumberKeys": "error",
+        "useSimplifiedLogicExpression": "error",
+        "useWhile": "error"
+      },
+      "nursery": {
+        "noDeprecatedImports": "warn",
+        "noMisusedPromises": "error",
+        "noNonNullAssertedOptionalChain": "error",
+        "noReactForwardRef": "error",
+        "noSecrets": "error",
+        "noShadow": "error",
+        "noUnnecessaryConditions": "warn",
+        "noUselessCatchBinding": "error",
+        "useAnchorHref": "error",
+        "useConsistentArrowReturn": {
+          "level": "error",
+          "options": {
+            "requireForObjectLiteral": true
+          }
+        },
+        "useConsistentTypeDefinitions": {
+          "level": "error",
+          "fix": "safe",
+          "options": {
+            "style": "interface"
+          }
+        },
+        "useExhaustiveSwitchCases": "error",
+        "useImageSize": "error",
+        "useReactFunctionComponents": "error",
+        "useSortedClasses": "error"
+      },
+      "performance": {
+        "noAccumulatingSpread": "error",
+        "noAwaitInLoops": "error",
+        "noDelete": "error",
+        "noImgElement": "error",
+        "noNamespaceImport": "error",
+        "noReExportAll": "error",
+        "useTopLevelRegex": "error"
+      },
+      "security": {
+        "noBlankTarget": "error",
+        "noDangerouslySetInnerHtml": "error",
+        "noDangerouslySetInnerHtmlWithChildren": "error",
+        "noGlobalEval": "error"
+      },
+      "style": {
+        "noCommonJs": "error",
+        "noDefaultExport": "error",
+        "noEnum": "error",
+        "noExportedImports": "error",
+        "noHeadElement": "error",
+        "noInferrableTypes": "error",
+        "noMagicNumbers": "error",
+        "noNamespace": "error",
+        "noNestedTernary": "error",
+        "noParameterAssign": "error",
+        "noRestrictedGlobals": "error",
+        "noSubstr": "error",
+        "noUselessElse": "error",
+        "noYodaExpression": "error",
+        "useArrayLiterals": "error",
+        "useAsConstAssertion": "error",
+        "useBlockStatements": {
+          "level": "error",
+          "fix": "safe"
+        },
+        "useCollapsedIf": "error",
+        "useCollapsedElseIf": "error",
+        "useConsistentArrayType": "error",
+        "useConsistentBuiltinInstantiation": "error",
+        "useConsistentCurlyBraces": {
+          "level": "error",
+          "fix": "safe"
+        },
+        "useConsistentObjectDefinitions": {
+          "level": "error",
+          "options": {
+            "syntax": "shorthand"
+          }
+        },
+        "useConst": "error",
+        "useDefaultParameterLast": {
+          "level": "warn",
+          "fix": "safe"
+        },
+        "useDefaultSwitchClause": "error",
+        "useExplicitLengthCheck": {
+          "level": "warn",
+          "fix": "safe"
+        },
+        "useExponentiationOperator": "error",
+        "useImportType": "error",
+        "useExportType": "error",
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "filenameCases": ["kebab-case"],
+            "requireAscii": true,
+            "strictCase": true
+          }
+        },
+        "useForOf": "warn",
+        "useFragmentSyntax": "error",
+        "useNamingConvention": {
+          "level": "error",
+          "fix": "safe",
+          "options": {
+            "strictCase": true,
+            "requireAscii": true,
+            "conventions": [
+              {
+                "selector": {
+                  "kind": "variable"
+                },
+                "formats": ["camelCase"]
+              },
+              {
+                "selector": {
+                  "kind": "function"
+                },
+                "formats": ["camelCase"]
+              },
+              {
+                "selector": {
+                  "kind": "functionParameter"
+                },
+                "formats": ["camelCase"]
+              },
+              {
+                "selector": {
+                  "kind": "class"
+                },
+                "formats": ["PascalCase"]
+              },
+              {
+                "selector": {
+                  "kind": "interface"
+                },
+                "formats": ["PascalCase"],
+                "match": "I(.+)"
+              },
+              {
+                "selector": {
+                  "kind": "typeAlias"
+                },
+                "formats": ["PascalCase"]
+              },
+              {
+                "selector": {
+                  "kind": "classMember",
+                  "modifiers": ["private"]
+                },
+                "formats": ["camelCase"],
+                "match": "_(.+)"
+              },
+              {
+                "selector": {
+                  "kind": "objectLiteralMember"
+                },
+                "formats": ["camelCase"]
+              },
+              {
+                "selector": {
+                  "kind": "typeParameter"
+                },
+                "formats": ["PascalCase"]
+              },
+              {
+                "selector": {
+                  "kind": "typeMember"
+                },
+                "formats": ["camelCase"]
+              }
+            ]
+          }
+        },
+        "useNumericSeparators": "warn",
+        "useObjectSpread": "error",
+        "useReadonlyClassProperties": "warn",
+        "useSelfClosingElements": "error",
+        "useShorthandAssign": "warn",
+        "useShorthandFunctionType": "error",
+        "useSingleVarDeclarator": "error",
+        "useSymbolDescription": "error",
+        "useTemplate": "error",
+        "useThrowNewError": "error",
+        "useThrowOnlyError": "error",
+        "useTrimStartEnd": "error"
+      }
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "identifierOrder": "lexicographic",
+            "groups": [
+              { "type": true },
+              ":NODE:",
+              ":BLANK_LINE:",
+              ":PACKAGE:",
+              ":BLANK_LINE:",
+              ":ALIAS:",
+              ":BLANK_LINE:",
+              "PATH"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "overrides": [
+    {
+      "includes": ["lib/**/*.story.ts", "lib/**/*.story.tsx"],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDefaultExport": "off",
+            "useNamingConvention": {
+              "level": "info",
+              "fix": "safe",
+              "options": {
+                "strictCase": true,
+                "requireAscii": true,
+                "conventions": []
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "includes": ["lib/**/*.tsx"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useNamingConvention": {
+              "level": "error",
+              "fix": "safe",
+              "options": {
+                "strictCase": false,
+                "requireAscii": true,
+                "conventions": [
+                  {
+                    "selector": {
+                      "kind": "interface"
+                    },
+                    "formats": ["PascalCase"],
+                    "match": "I[A-Z][a-zA-Z]*"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

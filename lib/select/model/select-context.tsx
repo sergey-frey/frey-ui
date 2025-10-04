@@ -1,32 +1,29 @@
+import "../styles/select.scss";
+
+import type { ISelectActionsContextType, ISelectContextType } from "../types";
+
 import {
+  type PropsWithChildren,
   createContext,
-  PropsWithChildren,
   useCallback,
   useContext,
   useEffect,
 } from "react";
-import { SelectActionsContextType, SelectContextType } from "../types";
 
-import "../styles/select.scss";
-
-export const SelectContext = createContext<SelectContextType>({
+export const SelectContext = createContext<ISelectContextType>({
   isOpen: false,
   value: "",
 });
 
-export const SelectActionsContext = createContext<SelectActionsContextType>({
+export const SelectActionsContext = createContext<ISelectActionsContextType>({
   open: () => {},
   close: () => {},
   onValueChange: () => {},
 });
 
-export const useSelect = () => {
-  return useContext(SelectContext);
-};
+export const useSelect = () => useContext(SelectContext);
 
-export const useSelectActions = () => {
-  return useContext(SelectActionsContext);
-};
+export const useSelectActions = () => useContext(SelectActionsContext);
 
 export type SelectProviderProps = PropsWithChildren<{
   isOpen: boolean;
@@ -52,15 +49,15 @@ export const SelectProvider = ({
   }, [onOpenChange]);
 
   const handleValueChange = useCallback(
-    (value: string) => {
-      onValueChange(value);
+    (changedValue: string) => {
+      onValueChange(changedValue);
     },
     [onValueChange],
   );
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
-      if (!event.target || !(event.target instanceof HTMLElement)) {
+      if (!(event.target && event.target instanceof HTMLElement)) {
         return;
       }
 

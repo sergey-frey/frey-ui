@@ -1,9 +1,10 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
+
 import { ArrowRightIcon } from "../../assets/arrow-right-icon";
 import { BellIcon } from "../../assets/bell-icon";
 import { SearchIcon } from "../../assets/search-icon";
 import { Loader } from "../loader";
-import { Input, InputProps } from "./ui/input";
+import { Input, type InputProps } from "./ui/input";
 
 const meta = {
   component: Input,
@@ -14,22 +15,22 @@ const meta = {
     },
     startContent: {
       control: "select",
-      options: ["search", "arrow_right", "loader", "none"],
+      options: ["search", "arrowRight", "loader", "none"],
       mapping: {
         none: undefined,
         search: <SearchIcon width={20} height={20} />,
-        arrow_right: <ArrowRightIcon width={20} height={20} />,
-        loader: <Loader size={"s"} />,
+        arrowRight: <ArrowRightIcon width={20} height={20} />,
+        loader: <Loader size="s" />,
       },
     },
     endContent: {
       control: "select",
-      options: ["bell", "arrow_right", "loader", "none"],
+      options: ["bell", "arrowRight", "loader", "none"],
       mapping: {
         none: undefined,
         bell: <BellIcon width={20} height={20} />,
-        arrow_right: <ArrowRightIcon width={20} height={20} />,
-        loader: <Loader size={"m"} />,
+        arrowRight: <ArrowRightIcon width={20} height={20} />,
+        loader: <Loader size="m" />,
       },
     },
   },

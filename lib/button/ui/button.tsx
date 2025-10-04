@@ -1,5 +1,6 @@
-import { ButtonHTMLAttributes, ReactNode } from "react";
-import { buttonVariants, ButtonVariantsProps } from "./button-variants";
+import type { ButtonHTMLAttributes, ReactNode } from "react";
+
+import { type ButtonVariantsProps, buttonVariants } from "./button-variants";
 
 import "../styles/button.scss";
 
@@ -19,32 +20,30 @@ export const Button = ({
   className,
   children,
   ...props
-}: ButtonProps) => {
-  return (
-    <button
-      {...props}
-      className={buttonVariants({
-        size,
-        variant,
-        isIconOnly,
-        isInvertedBehavior,
-        disabled: props.disabled,
-        withStartContent: Boolean(startContent),
-        withEndContent: Boolean(endContent),
-        className,
-      })}
-    >
-      {startContent && (
-        <span className="frey-button__content-container start-content">
-          {startContent}
-        </span>
-      )}
-      {children}
-      {endContent && (
-        <span className="frey-button__content-container end-content">
-          {endContent}
-        </span>
-      )}
-    </button>
-  );
-};
+}: ButtonProps) => (
+  <button
+    {...props}
+    className={buttonVariants({
+      size,
+      variant,
+      isIconOnly,
+      isInvertedBehavior,
+      disabled: props.disabled,
+      withStartContent: Boolean(startContent),
+      withEndContent: Boolean(endContent),
+      className,
+    })}
+  >
+    {startContent && (
+      <span className="frey-button__content-container start-content">
+        {startContent}
+      </span>
+    )}
+    {children}
+    {endContent && (
+      <span className="frey-button__content-container end-content">
+        {endContent}
+      </span>
+    )}
+  </button>
+);

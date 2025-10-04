@@ -1,4 +1,4 @@
-import { cva, VariantProps } from "class-variance-authority";
+import { type VariantProps, cva } from "class-variance-authority";
 
 export const loaderVariants = cva(["frey-loader"], {
   variants: {

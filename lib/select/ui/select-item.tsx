@@ -1,9 +1,10 @@
-import clsx from "clsx";
-import { PropsWithChildren, useCallback, useMemo } from "react";
-import { useSelect, useSelectActions } from "../model/select-context";
-
 import "../styles/select.scss";
+
+import clsx from "clsx";
+import { type PropsWithChildren, useCallback } from "react";
+
 import { useSelectConfig } from "../model/select-config-context";
+import { useSelect, useSelectActions } from "../model/select-context";
 
 export type SelectItemProps = PropsWithChildren<{
   value: string;
