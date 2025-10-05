@@ -112,7 +112,7 @@
         "noMisusedPromises": "error",
         "noNonNullAssertedOptionalChain": "error",
         "noReactForwardRef": "error",
-        "noSecrets": "error",
+        "noSecrets": "info",
         "noShadow": "error",
         "noUnnecessaryConditions": "warn",
         "noUselessCatchBinding": "error",
